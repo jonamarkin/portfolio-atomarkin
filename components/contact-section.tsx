@@ -31,10 +31,10 @@ export function ContactSection() {
                     </a>
                   </div>
 
-                  <div className="flex items-center gap-3">
+{/*                   <div className="flex items-center gap-3">
                     <Phone className="h-5 w-5 text-accent" />
                     <span className="text-muted-foreground">+393286870969</span>
-                  </div>
+                  </div> */}
 
                   <div className="flex items-center gap-3">
                     <MapPin className="h-5 w-5 text-accent" />
