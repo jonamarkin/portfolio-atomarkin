@@ -50,8 +50,8 @@ export function AboutSection() {
                     scale.
                   </p>
                   <p className="text-lg leading-relaxed font-serif">
-                    I enjoy sharing knowledge through tech blogsand contributing
-                    to open-source projects.
+                    I enjoy sharing knowledge through tech blogs and
+                    contributing to open-source projects.
                   </p>
                 </CardContent>
               </Card>
