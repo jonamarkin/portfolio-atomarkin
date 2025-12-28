@@ -45,9 +45,8 @@ export function AboutSection() {
                     Distributed Systems & Cyber-Physical Systems.
                   </p>
                   <p className="text-lg leading-relaxed mb-6 font-serif">
-                    Passionate about clean & sclalable architecture, performance
-                    optimization, and building fault-tolerant systems that
-                    scale.
+                    Passionate scalable architecture, performance optimization,
+                    and building fault-tolerant systems that scale.
                   </p>
                   <p className="text-lg leading-relaxed font-serif">
                     I enjoy sharing knowledge through tech blogs and
