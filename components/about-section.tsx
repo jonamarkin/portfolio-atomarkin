@@ -54,7 +54,16 @@ export function AboutSection() {
                   </p>
                   <p className="text-lg leading-relaxed font-serif">
                     In my free time, I still like to build useful products like
-                    Paycycl, a personal finance app created for my own use and
+                    {" "}
+                    <a
+                      href="https://paycycl.com"
+                      target="_blank"
+                      rel="noopener"
+                      className="font-semibold text-primary underline-offset-4 hover:underline"
+                    >
+                      Paycycl
+                    </a>
+                    , a personal finance app created for my own use and
                     for people managing money globally.
                   </p>
                 </CardContent>
