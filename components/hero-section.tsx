@@ -14,14 +14,14 @@ export function HeroSection() {
               <span className="text-primary">Jonathan</span> <span className="text-accent">Ato Markin</span>
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground font-serif mb-8 text-balance">
-              Software Engineer specializing in scalable backend systems and cloud infrastructure
+              Distributed systems researcher and PhD candidate in Cyber-Physical Systems
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <div className="flex items-center gap-2 text-muted-foreground">
               <MapPin className="h-4 w-4" />
-              <span>Pisa, Italy</span>
+              <span>Luleå, Sweden</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail className="h-4 w-4" />

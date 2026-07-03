@@ -13,12 +13,17 @@ const structuredData = {
     {
       "@type": "Person",
       name: "Jonathan Ato Markin",
-      jobTitle: "Software Engineer",
+      jobTitle: "Distributed Systems Researcher and PhD Candidate in Cyber-Physical Systems",
+      affiliation: {
+        "@type": "CollegeOrUniversity",
+        name: "Luleå University of Technology",
+      },
       sameAs: ["https://github.com/jonamarkin", "https://linkedin.com/in/atomarkin"],
       knowsAbout: [
-        "Backend development",
-        "Cloud infrastructure",
         "Distributed systems",
+        "Cyber-Physical Systems",
+        "Reliable infrastructure",
+        "Cloud infrastructure",
         "Personal finance software",
       ],
     },
@@ -30,7 +35,7 @@ const structuredData = {
       applicationCategory: "FinanceApplication",
       operatingSystem: "Web",
       description:
-        "Paycycl is a personal finance app for managing subscriptions, automating group payments, tracking spending, setting budgets, saving goals, and getting financial insights.",
+        "Paycycl is a personal finance app built by Jonathan Ato Markin for managing subscriptions, automating group payments, tracking spending, setting budgets, saving goals, and getting financial insights.",
       keywords: "personal finance app, subscription management, group payments, budgeting, saving goals",
       creator: {
         "@type": "Person",

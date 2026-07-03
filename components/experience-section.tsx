@@ -5,12 +5,28 @@ import { CalendarDays, MapPin } from "lucide-react"
 export function ExperienceSection() {
   const experiences = [
     {
+      title: "PhD Researcher in Cyber-Physical Systems",
+      company: "Luleå University of Technology",
+      location: "Luleå, Sweden",
+      period: "Present",
+      description:
+        "Researching distributed systems for cyber-physical environments, with a focus on scalable, reliable, and coordinated software infrastructure.",
+      technologies: [
+        "Distributed Systems",
+        "Cyber-Physical Systems",
+        "HPC",
+        "Cloud Infrastructure",
+        "Performance",
+        "Reliability",
+      ],
+    },
+    {
       title: "HPC-Cloud Researcher & Engineer",
       company: "University of Pisa",
       location: "Pisa, Italy",
-      period: "Oct. 2024 - Present",
-      description: "Architecting distributed compute infrastructure for AI models using MPI on HPC clusters.",
-      technologies: ["MPI", "PyTorch", "FastFlow", "HPC", "C++", "mpiP", "Slurm", "Python" ],
+      period: "Oct. 2024 - 2026",
+      description: "Architected distributed compute infrastructure for AI models using MPI on HPC clusters.",
+      technologies: ["MPI", "PyTorch", "FastFlow", "HPC", "C++", "mpiP", "Slurm", "Python"],
     },
     {
       title: "Software Engineer",
@@ -34,7 +50,7 @@ export function ExperienceSection() {
     <section id="experience" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">Professional Experience</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">Research & Experience</h2>
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (

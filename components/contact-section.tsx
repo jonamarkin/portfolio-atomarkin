@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react"
+import { Mail, MapPin, Github, Linkedin } from "lucide-react"
 
 export function ContactSection() {
   return (
@@ -16,8 +16,8 @@ export function ContactSection() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-muted-foreground font-serif leading-relaxed">
-                  I'm always interested in discussing new opportunities, collaborating on exciting projects, or sharing
-                  insights about software engineering and distributed systems.
+                  I'm always interested in research collaborations, distributed systems discussions, and thoughtful
+                  product ideas that turn infrastructure into something people can actually use.
                 </p>
 
                 <div className="space-y-4">
@@ -31,14 +31,9 @@ export function ContactSection() {
                     </a>
                   </div>
 
-{/*                   <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-accent" />
-                    <span className="text-muted-foreground">+393286870969</span>
-                  </div> */}
-
                   <div className="flex items-center gap-3">
                     <MapPin className="h-5 w-5 text-accent" />
-                    <span className="text-muted-foreground">Pisa, Italy</span>
+                    <span className="text-muted-foreground">Luleå, Sweden</span>
                   </div>
                 </div>
 
@@ -66,25 +61,24 @@ export function ContactSection() {
               <CardContent className="space-y-4">
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold mb-2">Research & Development</h4>
+                    <h4 className="font-semibold mb-2">PhD Research</h4>
                     <p className="text-sm text-muted-foreground font-serif">
-                      Working on distributed compute infrastructure for AI models at the University of Pisa, focusing on
-                      HPC-Cloud integration.
+                      Researching distributed systems in Cyber-Physical Systems at Luleå University of Technology.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold mb-2">Open Source</h4>
+                    <h4 className="font-semibold mb-2">Product Building</h4>
                     <p className="text-sm text-muted-foreground font-serif">
-                      Contributing to enterprise-grade tools and sharing knowledge through technical articles and
-                      conference talks.
+                      Building practical tools like Paycycl for personal finance, personal use, and global users.
                     </p>
                   </div>
 
                   <div>
                     <h4 className="font-semibold mb-2">Interests</h4>
                     <p className="text-sm text-muted-foreground font-serif">
-                      Distributed systems, cloud-native architectures, performance optimization, and developer tooling.
+                      Distributed systems, reliable infrastructure, cyber-physical systems, performance, and
+                      cloud-native architecture.
                     </p>
                   </div>
                 </div>

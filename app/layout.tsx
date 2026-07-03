@@ -21,30 +21,32 @@ const lato = Lato({
 })
 
 const description =
-  "Portfolio of Jonathan Ato Markin, a software engineer building scalable backend systems, cloud infrastructure, distributed systems, and products including Paycycl, a personal finance app."
+  "Portfolio of Jonathan Ato Markin, a distributed systems researcher and PhD candidate in Cyber-Physical Systems at Luleå University of Technology, building resilient infrastructure and products including Paycycl."
 
 export const metadata: Metadata = {
-  title: "Jonathan Ato Markin - Software Engineer",
+  title: "Jonathan Ato Markin - Distributed Systems Researcher",
   description,
   keywords: [
     "Jonathan Ato Markin",
-    "software engineer",
-    "backend development",
-    "cloud infrastructure",
+    "distributed systems researcher",
+    "PhD Cyber-Physical Systems",
+    "Luleå University of Technology",
     "distributed systems",
+    "cyber-physical systems",
+    "cloud infrastructure",
     "Paycycl",
     "personal finance app",
   ],
   authors: [{ name: "Jonathan Ato Markin" }],
   creator: "Jonathan Ato Markin",
   openGraph: {
-    title: "Jonathan Ato Markin - Software Engineer",
+    title: "Jonathan Ato Markin - Distributed Systems Researcher",
     description,
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Jonathan Ato Markin - Software Engineer",
+    title: "Jonathan Ato Markin - Distributed Systems Researcher",
     description,
   },
   generator: "v0.app",

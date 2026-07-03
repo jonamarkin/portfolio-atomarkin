@@ -17,7 +17,7 @@ export function ProjectsSection() {
     {
       title: "Paycycl - Personal Finance App",
       description:
-        "A personal finance web app for managing subscriptions, automating group payments, tracking spending, setting budgets, saving goals, and surfacing financial insights.",
+        "A personal finance web app I built for personal use and global users to manage subscriptions, automate group payments, track spending, set budgets, save toward goals, and surface financial insights.",
       technologies: ["Nuxt", "Vue", "Tailwind CSS", "Finance", "Subscriptions", "Group Payments"],
       liveUrl: "https://paycycl.com",
       liveLabel: "Visit Paycycl",

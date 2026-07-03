@@ -9,6 +9,9 @@ export function AboutSection() {
     "C++",
     "JavaScript",
     "TypeScript",
+    "Distributed Systems",
+    "Cyber-Physical Systems",
+    "HPC",
     "Spring Boot",
     "React",
     "Vue",
@@ -39,25 +42,28 @@ export function AboutSection() {
               <Card>
                 <CardContent className="p-8">
                   <p className="text-lg leading-relaxed mb-6 font-serif">
-                    Experienced software engineer with a strong track record of
-                    building scalable systems and expertise in enterprise system
-                    design. Currently pursuing advanced research in HPC,
-                    Distributed Systems & Cyber-Physical Systems.
+                    I am a distributed systems researcher and PhD candidate in
+                    Cyber-Physical Systems at Luleå University of Technology in
+                    Sweden, working at the intersection of scalable software,
+                    connected infrastructure, and resilient systems.
                   </p>
                   <p className="text-lg leading-relaxed mb-6 font-serif">
-                    Passionate scalable architecture, performance optimization,
-                    and building fault-tolerant systems that scale.
+                    My work is increasingly focused on distributed systems,
+                    performance, coordination, and reliability, building on my
+                    background designing backend platforms and cloud-native
+                    services.
                   </p>
                   <p className="text-lg leading-relaxed font-serif">
-                    I enjoy sharing knowledge through tech blogs and
-                    contributing to open-source projects.
+                    In my free time, I still like to build useful products like
+                    Paycycl, a personal finance app created for my own use and
+                    for people managing money globally.
                   </p>
                 </CardContent>
               </Card>
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
+              <h3 className="text-2xl font-bold mb-6">Research & Technical Skills</h3>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <Badge key={skill} variant="secondary" className="text-sm">
