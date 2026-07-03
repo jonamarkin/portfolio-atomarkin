@@ -42,10 +42,9 @@ export function AboutSection() {
               <Card>
                 <CardContent className="p-8">
                   <p className="text-lg leading-relaxed mb-6 font-serif">
-                    I am a distributed systems researcher and PhD candidate in
-                    Cyber-Physical Systems at Luleå University of Technology in
-                    Sweden, working at the intersection of scalable software,
-                    connected infrastructure, and resilient systems.
+                    I am a distributed systems researcher and doctoral student
+                    in Cyber-Physical Systems at Luleå University of Technology
+                    in Sweden, where I started my PhD in January 2026.
                   </p>
                   <p className="text-lg leading-relaxed mb-6 font-serif">
                     My work is increasingly focused on distributed systems,

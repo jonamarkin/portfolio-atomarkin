@@ -5,28 +5,29 @@ import { CalendarDays, MapPin } from "lucide-react"
 export function ExperienceSection() {
   const experiences = [
     {
-      title: "PhD Researcher in Cyber-Physical Systems",
+      title: "Doctoral Student",
       company: "Luleå University of Technology",
-      location: "Luleå, Sweden",
-      period: "Present",
+      location: "Luleå, Norrbotten County, Sweden",
+      period: "Jan. 2026 - Present",
       description:
-        "Researching distributed systems for cyber-physical environments, with a focus on scalable, reliable, and coordinated software infrastructure.",
+        "Researching distributed systems for cyber-physical environments, with interests spanning reliable infrastructure, smart contracts, and blockchain systems.",
       technologies: [
         "Distributed Systems",
         "Cyber-Physical Systems",
+        "Smart Contracts",
+        "Blockchain",
         "HPC",
-        "Cloud Infrastructure",
-        "Performance",
         "Reliability",
       ],
     },
     {
-      title: "HPC-Cloud Researcher & Engineer",
-      company: "University of Pisa",
-      location: "Pisa, Italy",
-      period: "Oct. 2024 - 2026",
-      description: "Architected distributed compute infrastructure for AI models using MPI on HPC clusters.",
-      technologies: ["MPI", "PyTorch", "FastFlow", "HPC", "C++", "mpiP", "Slurm", "Python"],
+      title: "HPC-Cloud Researcher",
+      company: "Università di Pisa",
+      location: "Pisa, Tuscany, Italy",
+      period: "Oct. 2024 - Oct. 2025",
+      description:
+        "Designed and developed prototypes and tools for workflows, I/O, HPC-cloud convergence, and distributed computing.",
+      technologies: ["Scientific Computing", "Cloud Computing", "Distributed Computing", "HPC", "I/O", "Workflows"],
     },
     {
       title: "Software Engineer",

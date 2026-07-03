@@ -63,7 +63,7 @@ export function ContactSection() {
                   <div>
                     <h4 className="font-semibold mb-2">PhD Research</h4>
                     <p className="text-sm text-muted-foreground font-serif">
-                      Researching distributed systems in Cyber-Physical Systems at Luleå University of Technology.
+                      Doctoral research in Cyber-Physical Systems at Luleå University of Technology since January 2026.
                     </p>
                   </div>
 

@@ -21,7 +21,7 @@ const lato = Lato({
 })
 
 const description =
-  "Portfolio of Jonathan Ato Markin, a distributed systems researcher and PhD candidate in Cyber-Physical Systems at Luleå University of Technology, building resilient infrastructure and products including Paycycl."
+  "Portfolio of Jonathan Ato Markin, a distributed systems researcher and doctoral student in Cyber-Physical Systems at Luleå University of Technology, building resilient infrastructure and products including Paycycl."
 
 export const metadata: Metadata = {
   title: "Jonathan Ato Markin - Distributed Systems Researcher",
@@ -29,10 +29,12 @@ export const metadata: Metadata = {
   keywords: [
     "Jonathan Ato Markin",
     "distributed systems researcher",
-    "PhD Cyber-Physical Systems",
+    "doctoral student Cyber-Physical Systems",
     "Luleå University of Technology",
     "distributed systems",
     "cyber-physical systems",
+    "smart contracts",
+    "blockchain",
     "cloud infrastructure",
     "Paycycl",
     "personal finance app",

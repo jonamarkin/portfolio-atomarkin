@@ -13,7 +13,7 @@ const structuredData = {
     {
       "@type": "Person",
       name: "Jonathan Ato Markin",
-      jobTitle: "Distributed Systems Researcher and PhD Candidate in Cyber-Physical Systems",
+      jobTitle: "Doctoral Student and Distributed Systems Researcher in Cyber-Physical Systems",
       affiliation: {
         "@type": "CollegeOrUniversity",
         name: "Luleå University of Technology",
@@ -22,6 +22,8 @@ const structuredData = {
       knowsAbout: [
         "Distributed systems",
         "Cyber-Physical Systems",
+        "Smart Contracts",
+        "Blockchain",
         "Reliable infrastructure",
         "Cloud infrastructure",
         "Personal finance software",

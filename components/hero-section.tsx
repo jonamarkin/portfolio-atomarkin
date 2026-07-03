@@ -14,7 +14,7 @@ export function HeroSection() {
               <span className="text-primary">Jonathan</span> <span className="text-accent">Ato Markin</span>
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground font-serif mb-8 text-balance">
-              Distributed systems researcher and PhD candidate in Cyber-Physical Systems
+              Distributed systems researcher and doctoral student in Cyber-Physical Systems
             </p>
           </div>
 
