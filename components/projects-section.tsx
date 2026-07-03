@@ -3,15 +3,31 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
 
+type Project = {
+  title: string
+  description: string
+  technologies: string[]
+  githubUrl?: string
+  liveUrl?: string
+  liveLabel?: string
+}
+
 export function ProjectsSection() {
-  const projects = [
+  const projects: Project[] = [
+    {
+      title: "Paycycl - Personal Finance App",
+      description:
+        "A personal finance web app for managing subscriptions, automating group payments, tracking spending, setting budgets, saving goals, and surfacing financial insights.",
+      technologies: ["Nuxt", "Vue", "Tailwind CSS", "Finance", "Subscriptions", "Group Payments"],
+      liveUrl: "https://paycycl.com",
+      liveLabel: "Visit Paycycl",
+    },
     {
       title: "ToggleFox - Enterprise Feature Flag System",
       description:
         "Production-grade feature flag system with Clean Architecture and 95%+ test coverage. Deployed resilient microservices with Prometheus monitoring and CI/CD pipelines.",
       technologies: ["Java", "Spring Boot", "PostgreSQL", "Redis", "Docker", "Prometheus"],
       githubUrl: "https://github.com/jonamarkin/togglefox",
-      liveUrl: "#",
     },
     {
       title: "Bookstore Microservices Application",
@@ -19,7 +35,6 @@ export function ProjectsSection() {
         "Fault-tolerant microservices with async messaging achieving 99.9% uptime under load. Built with comprehensive testing using Testcontainers.",
       technologies: ["Spring Boot", "RabbitMQ", "Testcontainers", "Docker", "Microservices"],
       githubUrl: "https://github.com/jonamarkin/bookstore-microservices",
-      liveUrl: "#",
     },
     {
       title: "Order Processing Application",
@@ -27,7 +42,6 @@ export function ProjectsSection() {
         "Containerized Go backend with REST APIs using Domain-Driven Design. Architected with Docker Compose for local development and multi-service orchestration.",
       technologies: ["Go", "Gin", "Docker", "DDD", "REST API", "Docker Compose"],
       githubUrl: "https://github.com/jonamarkin/e-commerce-order-processing",
-      liveUrl: "#",
     },
     {
       title: "FastMap: Real-Time IoT Anomaly Detection with Redis's Multi-Model Database",
@@ -35,8 +49,7 @@ export function ProjectsSection() {
         "A real-time anomaly detection platform for large-scale sensor networks. It provides a live map-based dashboard where operators can monitor thousands of IoT sensors at a glance.",
       technologies: ["Redis", "Python", "FastAPI", "Docker", "CI/CD", "HTML", "CSS", "Tailwind CSS"],
       githubUrl: "https://github.com/jonamarkin/fastmap-redis-challenge",
-      liveUrl: "#",
-    }
+    },
   ]
 
   return (
@@ -47,11 +60,11 @@ export function ProjectsSection() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <Card key={index} className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
                   <CardTitle className="text-lg text-balance leading-tight">{project.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="flex flex-1 flex-col space-y-4">
                   <p className="text-muted-foreground font-serif leading-relaxed text-sm">{project.description}</p>
 
                   <div className="flex flex-wrap gap-1">
@@ -62,18 +75,30 @@ export function ProjectsSection() {
                     ))}
                   </div>
 
-                  <div className="flex gap-2 pt-2">
-                    <Button size="sm" variant="outline" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-1" />
-                        Code
-                      </a>
-                    </Button>
-                    {project.liveUrl !== "#" && (
+                  <div className="mt-auto flex flex-wrap gap-2 pt-2">
+                    {project.githubUrl && (
+                      <Button size="sm" variant="outline" asChild>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener"
+                          aria-label={`View source code for ${project.title}`}
+                        >
+                          <Github className="h-4 w-4 mr-1" />
+                          Code
+                        </a>
+                      </Button>
+                    )}
+                    {project.liveUrl && (
                       <Button size="sm" asChild>
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener"
+                          aria-label={`Open ${project.liveLabel ?? project.title}`}
+                        >
                           <ExternalLink className="h-4 w-4 mr-1" />
-                          Live
+                          {project.liveLabel ?? "Live"}
                         </a>
                       </Button>
                     )}
