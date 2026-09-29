@@ -141,16 +141,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "Paycycl",
-    tagline: "Personal Finance App",
-    description:
-      "A personal finance web app I built for personal use and global users to manage subscriptions, automate group payments, track spending, set budgets, save toward goals, and surface financial insights.",
-    technologies: ["Nuxt", "Vue", "Tailwind CSS", "Finance", "Subscriptions", "Group Payments"],
-    liveUrl: "https://paycycl.com",
-    liveLabel: "Visit Paycycl",
-    image: "/images/work/paycycl.jpg",
-  },
-  {
     name: "PlayChale",
     tagline: "Grassroots Sports Platform",
     description:
@@ -159,6 +149,16 @@ export const projects: Project[] = [
     liveUrl: "https://playchale.com",
     liveLabel: "Visit PlayChale",
     image: "/images/work/playchale.jpg",
+  },
+  {
+    name: "Paycycl",
+    tagline: "Personal Finance App",
+    description:
+      "A personal finance web app I built for personal use and global users to manage subscriptions, automate group payments, track spending, set budgets, save toward goals, and surface financial insights.",
+    technologies: ["Nuxt", "Vue", "Tailwind CSS", "Finance", "Subscriptions", "Group Payments"],
+    liveUrl: "https://paycycl.com",
+    liveLabel: "Visit Paycycl",
+    image: "/images/work/paycycl.jpg",
   },
   {
     name: "ToggleFox",
