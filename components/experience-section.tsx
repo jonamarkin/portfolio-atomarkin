@@ -1,93 +1,77 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CalendarDays, MapPin } from "lucide-react"
+import type React from "react"
+import { Container, DotTag } from "@/components/section"
+import { Reveal } from "@/components/reveal"
+import { TraceFigure } from "@/components/figures/trace-figure"
+import { experiences, formatMonth, skillGroups } from "@/lib/site"
 
 export function ExperienceSection() {
-  const experiences = [
-    {
-      title: "Doctoral Student",
-      company: "Luleå University of Technology",
-      location: "Luleå, Norrbotten County, Sweden",
-      period: "Jan. 2026 - Present",
-      description:
-        "Researching distributed systems for cyber-physical environments, with interests spanning reliable infrastructure, smart contracts, and blockchain systems.",
-      technologies: [
-        "Distributed Systems",
-        "Cyber-Physical Systems",
-        "Smart Contracts",
-        "Blockchain",
-        "HPC",
-        "Reliability",
-      ],
-    },
-    {
-      title: "HPC-Cloud Researcher",
-      company: "Università di Pisa",
-      location: "Pisa, Tuscany, Italy",
-      period: "Oct. 2024 - Oct. 2025",
-      description:
-        "Designed and developed prototypes and tools for workflows, I/O, HPC-cloud convergence, and distributed computing.",
-      technologies: ["Scientific Computing", "Cloud Computing", "Distributed Computing", "HPC", "I/O", "Workflows"],
-    },
-    {
-      title: "Software Engineer",
-      company: "Union Systems Global",
-      location: "Accra, Ghana",
-      period: "Jun. 2019 - Dec. 2023",
-      description: "Developed scalable core backend services and integrations for web and mobile banking platforms.",
-      technologies: ["Java", "Spring", "PostgreSQL", "REST APIs", "CI/CD"],
-    },
-    {
-      title: "Engineer: API & Platforms",
-      company: "BRIJ Fintech Ghana Limited",
-      location: "Accra, Ghana",
-      period: "Oct. 2021 - Jan. 2023",
-      description: "Owned design and maintenance of frontend and backend microservices for payments and forex.",
-      technologies: ["Java", "Spring Boot", "VueJS", "Vault", "OpenAPI", "Microservices"],
-    },
-  ]
-
   return (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">Research & Experience</h2>
+    <section id="experience" className="py-24 lg:py-36">
+      <Container className="grid gap-10 lg:grid-cols-2 lg:gap-12">
+        <Reveal className="lg:sticky lg:top-24 lg:self-start">
+          <TraceFigure />
+        </Reveal>
 
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    <CardTitle className="text-xl">{exp.title}</CardTitle>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CalendarDays className="h-4 w-4" />
-                      {exp.period}
+        <div>
+          <Reveal>
+            <DotTag>Experience</DotTag>
+            <h2 className="mt-3 text-[21px] leading-[1.25] tracking-[-0.02em]">Research &amp; Experience</h2>
+            <p className="mt-4 max-w-[460px] text-[12.5px] leading-[1.7] text-mute">
+              From core banking and payments platforms in Accra, to HPC-cloud research in Pisa, to doctoral research in
+              Cyber-Physical Systems in Luleå.
+            </p>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <SpecCard title="Roles" className="mt-10">
+              <ol>
+                {experiences.map((exp) => (
+                  <li key={`${exp.company}-${exp.start}`} className="border-t py-5 first:border-t-0 first:pt-1 last:pb-0">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="text-[13.5px] tracking-[-0.01em]">{exp.title}</h3>
+                      <p className="shrink-0 text-[11px] text-mute tabular-nums">
+                        {formatMonth(exp.start)} – {formatMonth(exp.end)}
+                      </p>
                     </div>
+                    <p className="mt-1 text-[11.5px] text-mute">
+                      {exp.company} · {exp.location}
+                    </p>
+                    <p className="mt-3 text-[11.5px] leading-[1.65] text-mute">{exp.description}</p>
+                    <p className="mt-2 text-[11px] text-faint">{exp.technologies.join(" · ")}</p>
+                  </li>
+                ))}
+              </ol>
+            </SpecCard>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <SpecCard title="Technical Details" className="mt-4">
+              <dl className="grid grid-cols-2 gap-x-8 gap-y-6">
+                {skillGroups.map((group) => (
+                  <div key={group.label}>
+                    <dt className="text-[11.5px]">{group.label}</dt>
+                    <dd className="mt-1.5 text-[11.5px] leading-[1.6] text-mute">{group.skills.join(", ")}</dd>
                   </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <span className="font-semibold">{exp.company}</span>
-                    <span>•</span>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3" />
-                      {exp.location}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4 font-serif leading-relaxed">{exp.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                ))}
+              </dl>
+            </SpecCard>
+          </Reveal>
         </div>
-      </div>
+      </Container>
     </section>
+  )
+}
+
+function SpecCard({ title, className, children }: { title: string; className?: string; children: React.ReactNode }) {
+  return (
+    <div className={`rounded-[6px] bg-panel p-5 ring-1 ring-hairline sm:p-6 ${className ?? ""}`}>
+      <p className="flex items-center gap-2 text-[11.5px]">
+        <span aria-hidden className="-mt-0.5 leading-none">
+          ↳
+        </span>
+        {title}
+      </p>
+      <div className="mt-6">{children}</div>
+    </div>
   )
 }

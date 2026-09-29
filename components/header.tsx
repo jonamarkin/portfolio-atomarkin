@@ -1,78 +1,110 @@
 "use client"
 
-import { useState } from "react"
-import { Moon, Sun, Menu, X } from "lucide-react"
-import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Container } from "@/components/section"
+import { Logo } from "@/components/logo"
+import { navItems, profile } from "@/lib/site"
+import { cn } from "@/lib/utils"
 
 export function Header() {
-  const { theme, setTheme } = useTheme()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState<string | null>(null)
 
-  const navigation = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
-  ]
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id === "home" ? null : entry.target.id)
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    )
+    for (const id of ["home", ...navItems.map((n) => n.id), "contact"]) {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    }
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <a href="#home" className="text-xl font-bold text-primary">
-              atomarkin
-            </a>
-          </div>
+    <header
+      className={cn(
+        "sticky top-0 z-50 bg-page/90 backdrop-blur-md transition-[box-shadow] duration-300",
+        (scrolled || open) && "shadow-[0_1px_0_var(--hairline)]",
+      )}
+    >
+      <Container className="relative flex h-16 items-center justify-between">
+        <Logo />
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-
-            {/* Mobile menu button */}
-            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
-              {navigation.map((item) => (
+        <nav aria-label="Primary" className="absolute left-1/2 hidden -translate-x-1/2 md:block">
+          <ul className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <li key={item.id}>
                 <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  href={`#${item.id}`}
+                  aria-current={active === item.id ? "true" : undefined}
+                  className={cn(
+                    "text-[12.5px] transition-colors duration-200",
+                    active === item.id ? "text-ink" : "text-mute hover:text-ink",
+                  )}
                 >
-                  {item.name}
+                  {item.label}
                 </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="flex items-center gap-1.5">
+          <Button asChild arrow size="sm" className="rounded-full px-4">
+            <a href={`mailto:${profile.email}`}>Get in touch</a>
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <X strokeWidth={1.5} className="size-4" /> : <Menu strokeWidth={1.5} className="size-4" />}
+          </Button>
+        </div>
+      </Container>
+
+      {open ? (
+        <nav id="mobile-nav" aria-label="Mobile" className="border-t md:hidden">
+          <Container>
+            <ul className="flex flex-col py-2">
+              {navItems.map((item) => (
+                <li key={item.id} className="border-b last:border-b-0">
+                  <a
+                    href={`#${item.id}`}
+                    onClick={() => setOpen(false)}
+                    className="flex h-11 items-center justify-between text-[14px]"
+                  >
+                    {item.label}
+                    <span aria-hidden className="text-faint">
+                      ↘
+                    </span>
+                  </a>
+                </li>
               ))}
-            </div>
-          </div>
-        )}
-      </div>
+            </ul>
+          </Container>
+        </nav>
+      ) : null}
     </header>
   )
 }

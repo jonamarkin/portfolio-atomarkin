@@ -1,114 +1,41 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github } from "lucide-react"
-
-type Project = {
-  title: string
-  description: string
-  technologies: string[]
-  githubUrl?: string
-  liveUrl?: string
-  liveLabel?: string
-}
+import { Section, SectionHeading } from "@/components/section"
+import { Reveal } from "@/components/reveal"
+import { WorkCarousel, type WorkSlide } from "@/components/work-carousel"
+import { projects } from "@/lib/site"
+import { resolveImage } from "@/lib/images"
 
 export function ProjectsSection() {
-  const projects: Project[] = [
-    {
-      title: "Paycycl - Personal Finance App",
-      description:
-        "A personal finance web app I built for personal use and global users to manage subscriptions, automate group payments, track spending, set budgets, save toward goals, and surface financial insights.",
-      technologies: ["Nuxt", "Vue", "Tailwind CSS", "Finance", "Subscriptions", "Group Payments"],
-      liveUrl: "https://paycycl.com",
-      liveLabel: "Visit Paycycl",
-    },
-    {
-      title: "ToggleFox - Enterprise Feature Flag System",
-      description:
-        "Production-grade feature flag system with Clean Architecture and 95%+ test coverage. Deployed resilient microservices with Prometheus monitoring and CI/CD pipelines.",
-      technologies: ["Java", "Spring Boot", "PostgreSQL", "Redis", "Docker", "Prometheus"],
-      githubUrl: "https://github.com/jonamarkin/togglefox",
-    },
-    {
-      title: "Bookstore Microservices Application",
-      description:
-        "Fault-tolerant microservices with async messaging achieving 99.9% uptime under load. Built with comprehensive testing using Testcontainers.",
-      technologies: ["Spring Boot", "RabbitMQ", "Testcontainers", "Docker", "Microservices"],
-      githubUrl: "https://github.com/jonamarkin/bookstore-microservices",
-    },
-    {
-      title: "Order Processing Application",
-      description:
-        "Containerized Go backend with REST APIs using Domain-Driven Design. Architected with Docker Compose for local development and multi-service orchestration.",
-      technologies: ["Go", "Gin", "Docker", "DDD", "REST API", "Docker Compose"],
-      githubUrl: "https://github.com/jonamarkin/e-commerce-order-processing",
-    },
-    {
-      title: "FastMap: Real-Time IoT Anomaly Detection with Redis's Multi-Model Database",
-      description:
-        "A real-time anomaly detection platform for large-scale sensor networks. It provides a live map-based dashboard where operators can monitor thousands of IoT sensors at a glance.",
-      technologies: ["Redis", "Python", "FastAPI", "Docker", "CI/CD", "HTML", "CSS", "Tailwind CSS"],
-      githubUrl: "https://github.com/jonamarkin/fastmap-redis-challenge",
-    },
-  ]
+  const slides: WorkSlide[] = projects.map((p) => {
+    const href = (p.liveUrl ?? p.githubUrl)!
+    return {
+      name: p.name,
+      tagline: p.tagline,
+      description: p.description,
+      technologies: p.technologies,
+      href,
+      linkLabel: p.liveUrl ? (p.liveLabel ?? "Visit") : "View code",
+      address: href.replace(/^https?:\/\//, ""),
+      image: p.image ? resolveImage(p.image) : null,
+      repo: p.repo,
+    }
+  })
 
   return (
-    <section id="projects" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">Featured Projects</h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <Card key={index} className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <CardTitle className="text-lg text-balance leading-tight">{project.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-1 flex-col space-y-4">
-                  <p className="text-muted-foreground font-serif leading-relaxed text-sm">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <div className="mt-auto flex flex-wrap gap-2 pt-2">
-                    {project.githubUrl && (
-                      <Button size="sm" variant="outline" asChild>
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener"
-                          aria-label={`View source code for ${project.title}`}
-                        >
-                          <Github className="h-4 w-4 mr-1" />
-                          Code
-                        </a>
-                      </Button>
-                    )}
-                    {project.liveUrl && (
-                      <Button size="sm" asChild>
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener"
-                          aria-label={`Open ${project.liveLabel ?? project.title}`}
-                        >
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          {project.liveLabel ?? "Live"}
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+    <Section id="work">
+      <Reveal>
+        <SectionHeading
+          tag="Selected Work"
+          title="Built to Run Reliably"
+          aside={
+            <p className="max-w-[300px] text-[11.5px] leading-[1.6] text-mute sm:text-right">
+              Live products and open-source systems: what each one does, the stack behind it, and where to find it.
+            </p>
+          }
+        />
+      </Reveal>
+      <Reveal delay={100}>
+        <WorkCarousel slides={slides} />
+      </Reveal>
+    </Section>
   )
 }

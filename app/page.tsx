@@ -31,6 +31,20 @@ const structuredData = {
     },
     {
       "@type": "SoftwareApplication",
+      name: "PlayChale",
+      url: "https://playchale.com",
+      applicationCategory: "SportsApplication",
+      operatingSystem: "Web",
+      description:
+        "PlayChale is a grassroots sports platform built by Jonathan Ato Markin for finding games, booking pitches, sharing costs, and tracking player stats in Ghana.",
+      creator: {
+        "@type": "Person",
+        name: "Jonathan Ato Markin",
+        sameAs: ["https://github.com/jonamarkin", "https://linkedin.com/in/atomarkin"],
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
       name: "Paycycl",
       alternateName: "PayCycl",
       url: "https://paycycl.com",
@@ -50,7 +64,7 @@ const structuredData = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -58,13 +72,15 @@ export default function Home() {
         }}
       />
       <Header />
-      <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <BlogSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <BlogSection />
+        <ContactSection />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }

@@ -1,24 +1,9 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Montserrat } from "next/font/google"
-import { Lato } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Suspense } from "react"
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-})
-
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
-  variable: "--font-lato",
-  display: "swap",
-})
 
 const description =
   "Portfolio of Jonathan Ato Markin, a distributed systems researcher and doctoral student in Cyber-Physical Systems at Luleå University of Technology, building resilient infrastructure and products including Paycycl."
@@ -38,6 +23,7 @@ export const metadata: Metadata = {
     "cloud infrastructure",
     "Paycycl",
     "personal finance app",
+    "PlayChale",
   ],
   authors: [{ name: "Jonathan Ato Markin" }],
   creator: "Jonathan Ato Markin",
@@ -51,7 +37,10 @@ export const metadata: Metadata = {
     title: "Jonathan Ato Markin - Distributed Systems Researcher",
     description,
   },
-  generator: "v0.app",
+}
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 }
 
 export default function RootLayout({
@@ -60,13 +49,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans ${montserrat.variable} ${lato.variable} ${GeistMono.variable} antialiased`}>
-        <Suspense fallback={null}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
-        </Suspense>
+    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <head>
+        {/* Lets scroll-reveal hide content only when JS is running */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
+      <body className="font-sans">
+        {children}
+        <Analytics />
       </body>
     </html>
   )

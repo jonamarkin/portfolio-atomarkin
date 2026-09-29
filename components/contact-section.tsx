@@ -1,92 +1,49 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Github, Linkedin } from "lucide-react"
+import { Container, DotTag } from "@/components/section"
+import { Reveal } from "@/components/reveal"
+import { JourneyMap } from "@/components/figures/journey-map"
+import { profile } from "@/lib/site"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">Get In Touch</h2>
+    <section id="contact" className="py-24 lg:py-36">
+      <Container className="grid gap-10 lg:grid-cols-2 lg:gap-12">
+        <Reveal>
+          <JourneyMap className="aspect-[4/5] sm:aspect-[5/4] lg:aspect-[1/1.05]">
+            <div className="absolute top-[6%] left-[5%] flex w-[44%] max-w-[190px] flex-col justify-end rounded-[6px] bg-white/55 p-3.5 ring-1 ring-white/70 backdrop-blur-md sm:aspect-[4/5] sm:w-[34%] sm:p-4">
+              <p className="text-[19px] tracking-[-0.02em]">Let&apos;s Talk</p>
+              <p className="mt-1.5 text-[11px] leading-[1.5] text-body">
+                Research collaborations, systems discussions, and product ideas.
+              </p>
+            </div>
+          </JourneyMap>
+        </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Let's Connect</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground font-serif leading-relaxed">
-                  I'm always interested in research collaborations, distributed systems discussions, and thoughtful
-                  product ideas that turn infrastructure into something people can actually use.
-                </p>
+        <Reveal delay={100} className="flex flex-col lg:py-2">
+          <DotTag>Get in Touch</DotTag>
+          <h2 className="mt-5 text-[clamp(2rem,1.3rem+2.6vw,3.25rem)] max-w-[600px] leading-[1.08] tracking-[-0.035em]">
+            Let&apos;s build systems that stay <span className="text-faint">reliable, coordinated and useful.</span>
+          </h2>
 
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-accent" />
-                    <a
-                      href="mailto:jonamarkin@gmail.com"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      jonamarkin@gmail.com
-                    </a>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <MapPin className="h-5 w-5 text-accent" />
-                    <span className="text-muted-foreground">Luleå, Sweden</span>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 pt-4">
-                  <Button variant="outline" size="sm" asChild>
-                    <a href="https://github.com/jonamarkin" target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-2" />
-                      GitHub
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="sm" asChild>
-                    <a href="https://linkedin.com/in/atomarkin" target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="h-4 w-4 mr-2" />
-                      LinkedIn
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Current Focus</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold mb-2">PhD Research</h4>
-                    <p className="text-sm text-muted-foreground font-serif">
-                      Doctoral research in Cyber-Physical Systems at Luleå University of Technology since January 2026.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2">Product Building</h4>
-                    <p className="text-sm text-muted-foreground font-serif">
-                      Building practical tools like Paycycl for personal finance, personal use, and global users.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2">Interests</h4>
-                    <p className="text-sm text-muted-foreground font-serif">
-                      Distributed systems, reliable infrastructure, cyber-physical systems, performance, and
-                      cloud-native architecture.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="mt-12 lg:mt-auto">
+            <p className="max-w-[380px] text-[12.5px] leading-[1.7] text-mute">
+              I&apos;m always interested in research collaborations, distributed systems discussions, and thoughtful
+              product ideas that turn infrastructure into something people can actually use.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <Button asChild arrow size="sm">
+                <a href={`mailto:${profile.email}`}>Email me</a>
+              </Button>
+              <p className="text-[11.5px] text-mute">
+                <a href={`mailto:${profile.email}`} className="text-ink hover:underline">
+                  {profile.email}
+                </a>{" "}
+                · {profile.location}
+              </p>
+            </div>
           </div>
-        </div>
-      </div>
+        </Reveal>
+      </Container>
     </section>
   )
 }
