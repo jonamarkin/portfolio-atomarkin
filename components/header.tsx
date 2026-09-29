@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/section"
@@ -11,7 +13,11 @@ import { cn } from "@/lib/utils"
 export function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [active, setActive] = useState<string | null>(null)
+  const [spied, setSpied] = useState<string | null>(null)
+  const pathname = usePathname()
+  const onHome = pathname === "/"
+  // On the home page the scroll position decides; elsewhere the route does
+  const active = onHome ? spied : pathname.startsWith("/writing") ? "blog" : null
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -21,20 +27,24 @@ export function Header() {
   }, [])
 
   useEffect(() => {
+    if (!onHome) return
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) setActive(entry.target.id === "home" ? null : entry.target.id)
+          if (entry.isIntersecting) setSpied(entry.target.id === "home" ? null : entry.target.id)
         }
       },
       { rootMargin: "-45% 0px -50% 0px" },
     )
-    for (const id of ["home", ...navItems.map((n) => n.id), "contact"]) {
+    for (const id of ["home", ...navItems.map((n) => n.section), "contact"]) {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     }
     return () => observer.disconnect()
-  }, [])
+  }, [onHome])
+
+  // Close the mobile menu on navigation
+  useEffect(() => setOpen(false), [pathname])
 
   return (
     <header
@@ -49,17 +59,17 @@ export function Header() {
         <nav aria-label="Primary" className="absolute left-1/2 hidden -translate-x-1/2 md:block">
           <ul className="flex items-center gap-8">
             {navItems.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  aria-current={active === item.id ? "true" : undefined}
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-current={active === item.section ? "true" : undefined}
                   className={cn(
                     "text-[12.5px] transition-colors duration-200",
-                    active === item.id ? "text-ink" : "text-mute hover:text-ink",
+                    active === item.section ? "text-ink" : "text-mute hover:text-ink",
                   )}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -88,9 +98,9 @@ export function Header() {
           <Container>
             <ul className="flex flex-col py-2">
               {navItems.map((item) => (
-                <li key={item.id} className="border-b last:border-b-0">
-                  <a
-                    href={`#${item.id}`}
+                <li key={item.href} className="border-b last:border-b-0">
+                  <Link
+                    href={item.href}
                     onClick={() => setOpen(false)}
                     className="flex h-11 items-center justify-between text-[14px]"
                   >
@@ -98,7 +108,7 @@ export function Header() {
                     <span aria-hidden className="text-faint">
                       ↘
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

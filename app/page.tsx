@@ -1,11 +1,9 @@
-import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { ExperienceSection } from "@/components/experience-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { BlogSection } from "@/components/blog-section"
 import { ContactSection } from "@/components/contact-section"
-import { Footer } from "@/components/footer"
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -73,7 +71,6 @@ export default function Home() {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <Header />
       <main>
         <HeroSection />
         <AboutSection />
@@ -82,7 +79,6 @@ export default function Home() {
         <BlogSection />
         <ContactSection />
       </main>
-      <Footer />
     </>
   )
 }

@@ -4,7 +4,7 @@ import { navItems, posts, profile, projects } from "@/lib/site"
 type FooterLink = { label: string; href: string; external?: boolean }
 
 const columns: { title: string; links: FooterLink[] }[] = [
-  { title: "Sections", links: [...navItems.map((n) => ({ label: n.label, href: `#${n.id}` })), { label: "Contact", href: "#contact" }] },
+  { title: "Sections", links: [...navItems.map((n) => ({ label: n.label, href: n.href })), { label: "Contact", href: "/#contact" }] },
   {
     title: "Work",
     links: projects.slice(0, 4).map((p) => ({ label: p.name, href: (p.liveUrl ?? p.githubUrl)!, external: true })),
@@ -12,6 +12,8 @@ const columns: { title: string; links: FooterLink[] }[] = [
   {
     title: "Writing",
     links: [
+      { label: "All writing", href: "/writing" },
+      { label: "RSS", href: "/writing/rss.xml" },
       { label: "Dev.to", href: profile.devto, external: true },
       { label: "Testcontainers talk", href: posts.find((p) => p.platform === "GitHub")!.url, external: true },
     ],

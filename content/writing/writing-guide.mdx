@@ -1,0 +1,74 @@
+---
+title: How to write a post on this site
+date: 2026-09-29
+summary: A draft that shows everything a post can do. It only appears while running the dev server, never on the live site.
+kind: technical
+tags: [Guide]
+draft: true
+---
+
+Every post is one file in `content/writing/`. The file name becomes the address, so this file,
+`writing-guide.mdx`, lives at `/writing/writing-guide`. Copy it, change the frontmatter at the top,
+and write.
+
+## The frontmatter
+
+The block between the `---` lines at the top describes the post:
+
+| Field     | Required | What it does                                                   |
+| --------- | -------- | -------------------------------------------------------------- |
+| `title`   | yes      | The headline, also used for the share image                    |
+| `date`    | yes      | `YYYY-MM-DD`; posts are listed newest first                    |
+| `summary` | yes      | One or two sentences, shown in lists and link previews         |
+| `kind`    | no       | `technical` (default) or `essay`; drives the filter on /writing |
+| `tags`    | no       | e.g. `[Raft, Reliability]`; the first one shows on cards       |
+| `draft`   | no       | `true` keeps the post off the live site                        |
+
+## Writing
+
+Plain Markdown works as you'd expect: **bold**, _italic_, [links](https://atomarkin.com), `inline code`,
+and lists:
+
+- Short, clear paragraphs read best at this width.
+- Use `##` for sections and `###` for sub-sections.
+- Links to other sites open in a new tab automatically.
+
+> A quote, set in ink with a thin rule, for the sentence you want people to remember.
+
+### Code
+
+Fenced code blocks are highlighted in the site's black-and-white theme. Add a title if it helps:
+
+```java title="LeaderElection.java"
+// A follower becomes a candidate when it stops hearing from the leader
+if (clock.millis() - lastHeartbeat > electionTimeout) {
+    currentTerm++;
+    state = State.CANDIDATE;
+    requestVotes(currentTerm);
+}
+```
+
+```bash
+fly proxy 5432 -a my-postgres-app
+```
+
+### Figures
+
+Images go in `public/images/`. Add a caption as the image title:
+
+![The PlayChale home page](/images/work/playchale.jpg "Fig. 1 — The PlayChale home page.")
+
+### Footnotes
+
+Footnotes collect at the bottom of the post.[^1]
+
+## Publishing
+
+1. Write the post and preview it with `pnpm dev`.
+2. Remove `draft: true`.
+3. Commit and push. The post, its share image, the RSS feed and the sitemap update on the next deploy.
+
+If you also post on Dev.to, set its canonical URL to the address of the post here, so search engines
+credit atomarkin.com as the original.
+
+[^1]: Like this one.

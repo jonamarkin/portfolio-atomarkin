@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 /** A plain geometric "A" — the mark used in the header and the footer watermark. */
@@ -12,9 +13,9 @@ export function LogoMark({ className }: { className?: string }) {
 
 export function Logo({ className }: { className?: string }) {
   return (
-    <a href="#home" className={cn("inline-flex items-center gap-2 text-[15px] tracking-[-0.02em]", className)}>
+    <Link href="/" className={cn("inline-flex items-center gap-2 text-[15px] tracking-[-0.02em]", className)}>
       <LogoMark className="size-[18px]" />
       Ato Markin
-    </a>
+    </Link>
   )
 }

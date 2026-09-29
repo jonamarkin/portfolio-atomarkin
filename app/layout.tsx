@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/react"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import "./globals.css"
 
 const description =
@@ -10,8 +12,14 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://atomarkin.com"),
-  alternates: { canonical: "/" },
-  title: "Jonathan Ato Markin - Distributed Systems Researcher",
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": [{ url: "/writing/rss.xml", title: "Writing — Jonathan Ato Markin" }] },
+  },
+  title: {
+    default: "Jonathan Ato Markin - Distributed Systems Researcher",
+    template: "%s — Jonathan Ato Markin",
+  },
   description,
   keywords: [
     "Jonathan Ato Markin",
@@ -60,7 +68,9 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body className="font-sans">
+        <Header />
         {children}
+        <Footer />
         <Analytics />
       </body>
     </html>

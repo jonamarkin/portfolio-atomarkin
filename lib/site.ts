@@ -12,11 +12,12 @@ export const profile = {
   devto: "https://dev.to/jonamarkin",
 }
 
+/** `section` is the home-page section that highlights the item while scrolling. */
 export const navItems = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "work", label: "Work" },
-  { id: "blog", label: "Writing" },
+  { href: "/#about", section: "about", label: "About" },
+  { href: "/#experience", section: "experience", label: "Experience" },
+  { href: "/#work", section: "work", label: "Work" },
+  { href: "/writing", section: "blog", label: "Writing" },
 ]
 
 /**

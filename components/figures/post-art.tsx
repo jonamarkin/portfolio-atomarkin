@@ -102,3 +102,7 @@ export function PostArt({ topic }: { topic: string }) {
   const Art = art[topic]
   return Art ? <Art /> : null
 }
+
+export function hasPostArt(topic: string) {
+  return topic in art
+}

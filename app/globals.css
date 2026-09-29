@@ -61,6 +61,139 @@
   }
 }
 
+/* ------------------------------------------------------------------
+   Article typography — long-form reading, same quiet voice as the site
+   ------------------------------------------------------------------ */
+.prose-mono {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--body);
+}
+.prose-mono > * + * {
+  margin-top: 1.25em;
+}
+.prose-mono h2 {
+  margin-top: 2.4em;
+  font-size: 23px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.prose-mono h3 {
+  margin-top: 2em;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.prose-mono h2 + *,
+.prose-mono h3 + * {
+  margin-top: 0.7em;
+}
+.prose-mono strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+.prose-mono a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgb(17 17 17 / 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.prose-mono a:hover {
+  text-decoration-color: var(--ink);
+}
+.prose-mono ul,
+.prose-mono ol {
+  padding-left: 1.25em;
+}
+.prose-mono ul {
+  list-style: disc;
+}
+.prose-mono ol {
+  list-style: decimal;
+}
+.prose-mono li + li {
+  margin-top: 0.4em;
+}
+.prose-mono li::marker {
+  color: var(--faint);
+}
+.prose-mono blockquote {
+  border-left: 1px solid var(--ink);
+  padding-left: 1.1em;
+  color: var(--ink);
+  font-size: 1.1em;
+  letter-spacing: -0.01em;
+}
+.prose-mono hr {
+  margin: 3em 0;
+  border-color: var(--hairline);
+}
+.prose-mono :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--soft);
+  border-radius: 4px;
+  padding: 0.12em 0.35em;
+  color: var(--ink);
+}
+.prose-mono figure[data-rehype-pretty-code-figure] {
+  margin-top: 1.8em;
+  margin-bottom: 1.8em;
+}
+.prose-mono pre {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  border-radius: 6px;
+  padding: 1.1em 1.25em;
+  overflow-x: auto;
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+.prose-mono [data-rehype-pretty-code-title] {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--mute);
+  margin-bottom: 0.5em;
+}
+.prose-mono table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+.prose-mono th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink);
+}
+.prose-mono th,
+.prose-mono td {
+  border-bottom: 1px solid var(--hairline);
+  padding: 0.6em 0.8em 0.6em 0;
+}
+/* Footnotes (remark-gfm) */
+.prose-mono .footnotes {
+  margin-top: 3.5em;
+  border-top: 1px solid var(--hairline);
+  padding-top: 1.5em;
+  font-size: 13.5px;
+  color: var(--mute);
+}
+.prose-mono .footnotes h2 {
+  margin-top: 0;
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  letter-spacing: 0;
+  color: var(--mute);
+}
+.prose-mono sup a {
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+}
+
 /* Scroll reveal — a quiet fade, only once JS has marked the document */
 html.js [data-reveal] {
   opacity: 0;
