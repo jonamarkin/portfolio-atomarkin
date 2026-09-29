@@ -93,25 +93,6 @@ html.js [data-reveal][data-shown] {
   }
 }
 
-/* A dot rising along a vertical spine */
-@keyframes fig-rise {
-  0% {
-    top: 100%;
-    opacity: 0;
-  }
-  10%,
-  90% {
-    opacity: 1;
-  }
-  100% {
-    top: 0%;
-    opacity: 0;
-  }
-}
-.fig-rise {
-  animation: fig-rise 4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-}
-
 /* Marching dashes: routes on the map, the still-open trace span */
 @keyframes fig-dash {
   to {
@@ -138,9 +119,6 @@ html.js [data-reveal][data-shown] {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .fig-rise {
-    display: none;
   }
   .fig-dash,
   .fig-march {

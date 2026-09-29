@@ -1,15 +1,15 @@
 import { Container, DotTag } from "@/components/section"
 import { Reveal } from "@/components/reveal"
-import { StackFigure } from "@/components/figures/stack-figure"
+import { TracksFigure } from "@/components/figures/tracks-figure"
 import { focusAreas } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 // Where each numbered card floats around the centrepiece on large screens
 const positions = [
-  "lg:left-0 lg:top-[33%]",
-  "lg:left-0 lg:bottom-[15%]",
-  "lg:right-0 lg:top-[50%]",
-  "lg:right-0 lg:top-[15%]",
+  "lg:left-0 lg:top-[14%]", // 01 → Researching
+  "lg:right-0 lg:top-[10%]", // 02 → Researching
+  "lg:left-0 lg:bottom-[12%]", // 03 → Foundation
+  "lg:right-0 lg:top-[46%]", // 04 → Building
 ]
 
 export function AboutSection() {
@@ -23,9 +23,9 @@ export function AboutSection() {
           </h2>
         </Reveal>
 
-        <div className="relative mx-auto mt-14 max-w-[980px] lg:mt-16 lg:h-[600px]">
+        <div className="relative mx-auto mt-14 max-w-[980px] lg:mt-16 lg:h-[660px]">
           <Reveal className="mx-auto w-full max-w-[560px] lg:absolute lg:inset-y-0 lg:left-1/2 lg:-translate-x-1/2">
-            <StackFigure className="lg:h-full" />
+            <TracksFigure className="lg:h-full" />
           </Reveal>
 
           <ol className="mt-6 grid grid-cols-2 gap-3 lg:mt-0 lg:block">

@@ -53,7 +53,7 @@ export const focusAreas = [
   },
   {
     title: "Useful Products",
-    description: "Building practical tools like Paycycl for personal finance and global users.",
+    description: "Building practical tools like Paycycl and PlayChale for people to use every day.",
   },
 ]
 
@@ -217,6 +217,8 @@ export type Post = {
   url: string
   date: string // YYYY-MM-DD
   topic: string
+  /** From the Dev.to API */
+  readMinutes?: number
 }
 
 const postData: Post[] = [
@@ -237,6 +239,7 @@ const postData: Post[] = [
     url: "https://dev.to/jonamarkin/fastmap-real-time-iot-anomaly-detection-with-rediss-multi-model-database-3bg5",
     date: "2025-08-10",
     topic: "IoT",
+    readMinutes: 2,
   },
   {
     title: "Local Development, Remote Data: Accessing Fly.io PostgreSQL from Your Java API",
@@ -246,6 +249,7 @@ const postData: Post[] = [
     url: "https://dev.to/jonamarkin/local-development-remote-data-accessing-flyio-postgresql-from-your-java-api-2jb5",
     date: "2025-01-26",
     topic: "Databases",
+    readMinutes: 4,
   },
   {
     title: "Spring Boot Basics: Crafting Your First Application",
@@ -255,6 +259,7 @@ const postData: Post[] = [
     url: "https://dev.to/jonamarkin/spring-boot-basics-crafting-your-first-application-4kf3",
     date: "2024-06-15",
     topic: "Spring Boot",
+    readMinutes: 5,
   },
 ]
 

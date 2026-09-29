@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 
 const stops = [
   { key: "accra", label: "Accra · 2019" },
-  { key: "pisa", label: "Pisa · 2024" },
+  { key: "pisa", label: "Pisa · 2022" },
   { key: "lulea", label: "Luleå · 2026" },
 ] as const
 
