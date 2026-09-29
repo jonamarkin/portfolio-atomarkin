@@ -13,6 +13,8 @@ const structuredData = {
     {
       "@type": "Person",
       name: "Jonathan Ato Markin",
+      url: "https://atomarkin.com",
+      image: "https://atomarkin.com/images/hero-1.jpg",
       jobTitle: "Doctoral Student and Distributed Systems Researcher in Cyber-Physical Systems",
       affiliation: {
         "@type": "CollegeOrUniversity",

@@ -9,6 +9,8 @@ const description =
   "Portfolio of Jonathan Ato Markin, a distributed systems researcher and doctoral student in Cyber-Physical Systems at Luleå University of Technology, building resilient infrastructure and products including Paycycl."
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://atomarkin.com"),
+  alternates: { canonical: "/" },
   title: "Jonathan Ato Markin - Distributed Systems Researcher",
   description,
   keywords: [
@@ -31,9 +33,12 @@ export const metadata: Metadata = {
     title: "Jonathan Ato Markin - Distributed Systems Researcher",
     description,
     type: "website",
+    url: "/",
+    siteName: "Jonathan Ato Markin",
+    locale: "en_US",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Jonathan Ato Markin - Distributed Systems Researcher",
     description,
   },
